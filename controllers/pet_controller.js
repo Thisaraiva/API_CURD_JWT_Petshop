@@ -1,3 +1,4 @@
+import Tutor from "../models/tutor_model.js"
 import Pet from "../models/pet_model.js"
 
 export const getPets = async (req, res) => {
@@ -15,9 +16,9 @@ export const createPet = async (req, res) => {
         const { altura_pet } = req.body;
         let altura_categoria;
 
-        if (altura_pet <= 15) {
+        if (altura_pet < 15) {
             altura_categoria = 'PEQUENO';
-        } else if (altura_pet > 15 && altura_pet < 45) {
+        } else if (altura_pet >= 15 && altura_pet < 45) {
             altura_categoria = 'MEDIO';
         } else {
             altura_categoria = 'ALTO';

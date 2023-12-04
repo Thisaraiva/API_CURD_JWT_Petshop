@@ -1,5 +1,6 @@
 import { Sequelize } from 'sequelize'
 import db from '../config/database.js';
+import Tutor from '../models/tutor_model.js';
 
 const {DataTypes} = Sequelize;
 
@@ -32,5 +33,7 @@ const Pet = db.define('pet', {
     timestamps: false,
     freezeTableName: true,
 });
+
+
 
 export default Pet;

@@ -25,7 +25,11 @@ const Tutor = db.define('tutor', {
     freezeTableName: true,
 });
 
+Tutor.associate = (models) => {
+    Tutor.hasMany(Pet,
+        { foreignKey: 'id_tutor', as: 'pets' });  //Associação entre Tutor e Pet
+};
 
-Tutor.hasMany(Pet, { foreignKey: 'id_tutor', as: 'pets' });  //Associação entre Tutor e Pet
+Pet.belongsTo(Tutor, {foreignKey:'id_tutor', allowNull: 'true'});
 
 export default Tutor;
